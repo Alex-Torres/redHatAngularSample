@@ -1,0 +1,369 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "OrgChartApi",
+      "description": "Organization information for employees, departments and offices.",
+      "termsOfService": "https://opensource.org/licenses/MIT",
+      "contact": {
+        "name": "Open Source Team",
+        "url": "https://confluence.ba.ssa.gov/display/OSW/Open+Source+Workgroup+Home",
+        "email": "Open.Source.Staff@ssa.gov"
+      },
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      },
+      "version": "1.0"
+    },
+    "paths": {
+      "/api/v1/offices": {
+        "get": {
+          "tags": [
+            "OfficesApi"
+          ],
+          "summary": "Returns all active offices",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/offices/{office_code}": {
+        "get": {
+          "tags": [
+            "OfficesApi"
+          ],
+          "summary": "Returns details for an office",
+          "parameters": [
+            {
+              "name": "office_code",
+              "in": "path",
+              "description": "The three character office code. Also known as the DOORs office code.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/offices/{office_code}/childOffices": {
+        "get": {
+          "tags": [
+            "OfficesApi"
+          ],
+          "summary": "Returns a collection of diret and indiret child offices.",
+          "parameters": [
+            {
+              "name": "office_code",
+              "in": "path",
+              "description": "The three character office code. Also known as the DOORs office code.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/offices/{office_code}/people": {
+        "get": {
+          "tags": [
+            "OfficesApi"
+          ],
+          "summary": "Returns all the people in an office",
+          "parameters": [
+            {
+              "name": "office_code",
+              "in": "path",
+              "description": "The three character office code. Also known as the DOORs office code.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/offices/{office_code}/schedule": {
+        "get": {
+          "tags": [
+            "OfficesApi"
+          ],
+          "summary": "Returns the schedule of all the people in an office",
+          "parameters": [
+            {
+              "name": "office_code",
+              "in": "path",
+              "description": "The three character office code. Also known as the DOORs office code.",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/people/caprs/{id}": {
+        "get": {
+          "tags": [
+            "PeopleApi"
+          ],
+          "summary": "Returns a person object with their supervisor's pin, their office code, as well as the tree for both.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Person's identifying info (id, pin, email, etc)",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/people/{id}/schedule": {
+        "get": {
+          "tags": [
+            "PeopleApi"
+          ],
+          "summary": "Returns a person object with their default schedule info over a two week pay period.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Person's identifying info (id, pin, email, etc)",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/people/{id}": {
+        "get": {
+          "tags": [
+            "PeopleApi"
+          ],
+          "summary": "Returns a person object with their supervisor's pin, their office code, as well as the tree for both.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Person's identifying info (id, pin, email, etc)",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/people/{id}/settings": {
+        "get": {
+          "tags": [
+            "PeopleApi"
+          ],
+          "summary": "Returns the user preferences for a user.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Person's identifying info (id, pin, email, etc)",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/people/confluenceusers": {
+        "get": {
+          "tags": [
+            "PeopleApi"
+          ],
+          "summary": "Returns a collection of confluence users",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/people/bitbucketusers": {
+        "get": {
+          "tags": [
+            "PeopleApi"
+          ],
+          "summary": "Returns a collection of bitbucket users",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/projects": {
+        "get": {
+          "tags": [
+            "ProjectsApi"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/referencedata/officetypes": {
+        "get": {
+          "tags": [
+            "ReferenceDataApi"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/referencedata/officetypes/{id}": {
+        "get": {
+          "tags": [
+            "ReferenceDataApi"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/referencedata/namesuffixes": {
+        "get": {
+          "tags": [
+            "ReferenceDataApi"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/referencedata/namesuffixes/{id}": {
+        "get": {
+          "tags": [
+            "ReferenceDataApi"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/saccodes/{id}": {
+        "get": {
+          "tags": [
+            "SacCodesApi"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "oauth2": {
+          "type": "oauth2",
+          "flows": {
+            "authorizationCode": {
+              "authorizationUrl": "https://login.microsoftonline.com/98ed61bc-45d1-4a5b-946a-54bd05626381/oauth2/v2.0/authorize",
+              "tokenUrl": "https://login.microsoftonline.com/98ed61bc-45d1-4a5b-946a-54bd05626381/oauth2/v2.0/token",
+              "scopes": {
+                "api://bba1a7b9-efe3-49a7-af08-711349bf5160/read.access": "User API - Read access"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

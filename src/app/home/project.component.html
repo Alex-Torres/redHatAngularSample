@@ -1,0 +1,161 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xxl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-6 sm:my-6">
+                <!-- Avatar and name -->
+                <div class="flex flex-auto items-center min-w-0">
+                    <div class="flex flex-col min-w-0 ml-4">
+                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                            Alexander, welcome to OrgChart!
+                        </h2>
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:bell'"></mat-icon>
+                            <div class="ml-1.5 leading-6 truncate text-secondary">You have 2 new messages and 15 new
+                                tasks</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-6 sm:my-6">
+                <!-- Actions -->
+                <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3">
+                    <button class="fuse-mat-button-rounded bg-accent-700" mat-flat-button [color]="'accent'">
+                        <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                        <span class="ml-2">Messages</span>
+                    </button>
+                    <button class="fuse-mat-button-rounded" mat-flat-button [color]="'primary'">
+                        <mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:user-circle'"></mat-icon>
+                        <span class="ml-2">Your Profile</span>
+                    </button>
+                    <button class="fuse-mat-button-rounded" mat-flat-button [color]="'primary'">
+                        <mat-icon class="icon-size-5" [svgIcon]="'heroicons_outline:office-building'"></mat-icon>
+                        <span class="ml-2">Your Office</span>
+                    </button>
+                    <button class="fuse-mat-button-rounded" mat-flat-button [color]="'primary'">
+                        <mat-icon class="icon-size-5" [svgIcon]="'mat_solid:new_releases'"></mat-icon>
+                        <span class="ml-2">What's New!</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Main -->
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <div class="max-w-4xl prose prose-sm">
+            <fuse-card class="flex flex-col lg:flex-row">
+                <div class="p-6 sm:p-8 lg:p-10">
+                    <div class="text-3xl font-bold">Introduction</div>
+                    <div class="mt-2 leading-relaxed text-secondary">
+                        <p>
+                            This site is an aggregation of data from various systems that contain people and office
+                            data. It will help you find and connect with
+                            <a class="link" href="/people" rel="noreferrer" target="_blank">people</a>
+                            or
+                            <a class="link" href="/offices" rel="noreferrer" target="_blank">offices</a> in the agency.
+                            Data on
+                            this site is cached every few days from the source systems (see date at the top of the
+                            page). The main
+                            sources of data are DOORs , Active Directory, Outlook Address Book, Human Resources (HRODS),
+                            Electronic
+                            Personnel Enrollment Credential System (EPECS), Investment Management Tool (IMT) , as well
+                            as some new
+                            mapping files to clean up the data.
+                        </p>
+
+                        <p>
+                            If you come across bad data, let's clean it up! Just click the "Report Bad Data" link at the
+                            top.
+                        </p>
+                    </div>
+                    <div class="flex items-center mt-10">
+                        <div class="font-medium text-secondary">INCLUDED FEATURES</div>
+                        <div class="flex-auto ml-2 border-b-2"></div>
+
+                    </div>
+                    <p>
+                        Created by Joseph Amalfitano with help, input, and support from a bunch of awesome people. Read
+                        more... If you have any suggestions or ideas, please reach out!
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-4 mt-6">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-5 text-primary" [svgIcon]="'heroicons_solid:check-circle'">
+                            </mat-icon>
+                            <div class="ml-2">Private forum access</div>
+                        </div>
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-5 text-primary" [svgIcon]="'heroicons_solid:check-circle'">
+                            </mat-icon>
+                            <div class="ml-2">Access to annual online conference</div>
+                        </div>
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-5 text-primary" [svgIcon]="'heroicons_solid:check-circle'">
+                            </mat-icon>
+                            <div class="ml-2">Member resources</div>
+                        </div>
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-5 text-primary" [svgIcon]="'heroicons_solid:check-circle'">
+                            </mat-icon>
+                            <div class="ml-2">Official member T-Shirt</div>
+                        </div>
+                    </div>
+                </div>
+
+            </fuse-card>
+
+        </div>
+
+        <div class="max-w-4xl prose prose-sm mt-8">
+            <fuse-card class="flex flex-col lg:flex-row">
+                <div class="p-6 sm:p-8 lg:p-10">
+                    <div class="text-3xl font-bold">Agency assets and tooling</div>
+                    <div class="mt-2 leading-relaxed text-secondary">
+                        <p>
+                            Following, you can find links to several agency wide assets. Click on the component you want
+                            to learn more about and it will redirect you to the related section of the official
+                            documentation and information.
+                        </p>
+
+                    </div>
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 gap-10 mt-8">
+                        <ng-container *ngFor="let component of components">
+                            <fuse-card class="flex flex-col items-center max-w-80 w-full p-8 filter-info">
+                                <div
+                                    class="flex items-center justify-center p-5 rounded-full bg-primary-100 dark:bg-gray-600">
+                                    <mat-icon class="icon-size-10 text-primary-500 dark:text-primary-300"
+                                        [svgIcon]="'heroicons_outline:office-building'"></mat-icon>
+                                </div>
+                                <div class="text-2xl font-semibold leading-tight text-center mt-6">{{component.name}}
+                                </div>
+                                <div class="text-center text-secondary mt-3">Contact support to learn more about our
+                                    products and
+                                    get professional help</div>
+                                <button class="px-6 mt-8" mat-flat-button [color]="'primary'" [routerLink]="['./']">
+                                    Contact Now
+                                </button>
+                            </fuse-card>
+
+                        </ng-container>
+                    </div>
+
+                </div>
+
+
+            </fuse-card>
+        </div>
+
+
+
+
+
+    </div>
+</div>

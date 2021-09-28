@@ -1,0 +1,205 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div
+        class="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-6 sm:py-8 sm:px-10 border-b bg-card dark:bg-transparent">
+     <app-nav-breadcrumb></app-nav-breadcrumb>
+    </div>
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <div class="max-w-3xl">         
+           <form class="p-4 bg-card shadow rounded overflow-hidden" [formGroup]="horizontalStepperForm" (ngSubmit)="onSubmit()">
+                <mat-horizontal-stepper (animationDone)="setFocus()"(selectionChange)="setTargetId($event)"  [linear]="true" #horizontalStepper>
+                    <mat-step [formGroupName]="'step1'" [stepControl]="horizontalStepperForm.get('step1')"
+                        #horizontalStepperStep1>
+                        <ng-template matStepLabel>Site Preferences</ng-template>
+                        <p class="my-6 font-medium">
+                            Fill in your site preferences.
+                        </p>
+                      
+                        <div class="flex flex-col gt-xs:flex-row">
+                            <mat-form-field class="flex-auto gt-xs:pr-3">
+                                <mat-label class="font-semibold">Alias Name</mat-label>
+                                <input id='alias' [formControlName]="'alias'" #alias matInput>           
+                                <mat-error *ngIf="horizontalStepperForm.get('step1').get('alias').errors?.required">Alias entry required.</mat-error>    
+                                <mat-error *ngIf="horizontalStepperForm.get('step1').get('alias').errors?.serverError">
+                                    {{ horizontalStepperForm.get('step1').get('alias').errors?.serverError }}
+                                  </mat-error>          
+                            </mat-form-field>
+                            <mat-form-field class="flex-auto gt-xs:pl-3">
+                                <mat-label class="font-semibold">Choose Theme</mat-label>
+                                <mat-select [formControlName]="'prefersDarkMode'" [placeholder]="'Theme'" required>
+                                    <mat-option value="false">Default</mat-option>
+                                    <mat-option value="true">Dark Mode (BETA)</mat-option>
+                                </mat-select>
+                           
+                            </mat-form-field>
+                            <mat-form-field class="flex-auto gt-xs:pl-3">
+                                <mat-label class="font-semibold">Subject Pronoun</mat-label>
+                                <mat-select [formControlName]="'subjectiveGenderPronoun'" [placeholder]="'Subject Gender Pronoun'" required>
+                                    <mat-option value="">Not Applied</mat-option>
+                                    <mat-option value="I">I</mat-option>
+                                    <mat-option value="You">You</mat-option>
+                                    <mat-option value="Thou">Thou</mat-option>
+                                    <mat-option value="He">He</mat-option>
+                                    <mat-option value="She">She</mat-option>
+                                    <mat-option value="It">It</mat-option>
+                                    <mat-option value="One">One</mat-option>
+                                    <mat-option value="We">We</mat-option>
+                                    <mat-option value="Ye">Ye</mat-option>
+                                    <mat-option value="They">They</mat-option>
+                                    <mat-option value="Who">Who</mat-option>
+                                    <mat-option value="What">What</mat-option>
+                               
+
+                                </mat-select>
+                         
+                            </mat-form-field>
+                            <mat-form-field class="flex-auto gt-xs:pl-3">
+                                <mat-label class="font-semibold">Subject Pronoun</mat-label>
+                                <mat-select [formControlName]="'objectiveGenderPronoun'" [placeholder]="'Object Gender Pronoun'" required>
+                                    <mat-option value="">Not Applied</mat-option>
+                                    <mat-option value="Me">Me</mat-option>
+                                    <mat-option value="You">You</mat-option>
+                                    <mat-option value="Her">Her</mat-option>
+                                    <mat-option value="Him">Him</mat-option>
+                                    <mat-option value="Us">Us</mat-option>
+                                    <mat-option value="Them">Them</mat-option>
+                                    <mat-option value="Whom">Whom</mat-option>
+                                </mat-select>
+                               
+                            </mat-form-field>
+                            <mat-form-field class="flex-auto gt-xs:pl-3">
+                                <mat-label class="font-semibold">Possessive Gender Pronoun</mat-label>
+                                <mat-select [formControlName]="'possessiveGenderPronoun'" [placeholder]="'Possessive Gender Pronoun'" required>
+                                    <mat-option value="">Not Applied</mat-option>
+                                    <mat-option value="My">My</mat-option>
+                                    <mat-option value="Our">Our</mat-option>
+                                    <mat-option value="Your">Your</mat-option>
+                                    <mat-option value="His">His</mat-option>
+                                    <mat-option value="Her">Her</mat-option>
+                                    <mat-option value="Its">Its</mat-option>
+                                    <mat-option value="Their">Their</mat-option>
+                                </mat-select>
+                             
+                            </mat-form-field>
+                            <mat-form-field class="flex-auto gt-xs:pl-3">
+                                <mat-label class="font-semibold">Reflexive Gender Pronoun</mat-label>
+                                <mat-select [formControlName]="'reflexiveGenderPronoun'" [placeholder]="'Reflexive Gender Pronoun'" required>
+                                    <mat-option value="">Not Applied</mat-option>
+                                    <mat-option value="Myself">Myself</mat-option>
+                                    <mat-option value="Yourself">Yourself</mat-option>
+                                    <mat-option value="Himself">Himself</mat-option>
+                                    <mat-option value="Herself">Herself</mat-option>
+                                    <mat-option value="Oneself">Oneself</mat-option>
+                                    <mat-option value="Itself">Itself</mat-option>
+                                    <mat-option value="Ourselves">Ourselves</mat-option>
+                                    <mat-option value="Yourselves">Yourselves</mat-option>
+                                    <mat-option value="Themselves">Themselves</mat-option>
+                                </mat-select>
+                         
+                            </mat-form-field>
+                        </div>
+                        <div class="flex justify-end">
+                            <button class="px-8" mat-flat-button [color]="'primary'" 
+                                [disabled]="horizontalStepperStep1.stepControl.invalid"
+                                type="submit" matStepperNext>
+                                Next
+                            </button>
+                        </div>
+                    </mat-step>
+
+                    <mat-step [formGroupName]="'step2'" [stepControl]="horizontalStepperForm.get('step2')"
+                        #horizontalStepperStep2>
+                        <ng-template matStepLabel>Schedule</ng-template>
+                        <p class="my-6 font-medium">
+                            Update your schedule related information.
+                        </p>
+                        <div class="flex flex-col gt-xs:flex-row">
+                            <div class="flex flex-col mt-8 gt-sm:mt-0 gt-sm:ml-16">
+                                <span class="font-semibold mb-2">Schedule Accessiblity</span>
+                                <mat-radio-group #accessSchedule [formControlName]="'makeSchedulePublic'" class="flex flex-col" [color]="'primary'"
+                                    [value]="'just-good'">
+                                    <mat-radio-button  id='accessSchedule' class="mb-2" [value]=true>
+                                        Public
+                                     </mat-radio-button>
+                                    <mat-radio-button class="mb-2" [value]=false>
+                                        Private
+                                    </mat-radio-button>                                  
+                                 
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <mat-form-field class="flex-auto gt-xs:pl-3">
+                                <mat-label class="font-semibold">Start Work Hour</mat-label>
+                                <mat-select [formControlName]="'defaultWorkStartHour'" [placeholder]="'Start Work Hour'" required>
+                                    <mat-option value="0">12am</mat-option>
+                                    <mat-option value="1">1am</mat-option>
+                                    <mat-option value="2">2am</mat-option>
+                                    <mat-option value="3">3am</mat-option>
+                                    <mat-option value="4">4am</mat-option>
+                                    <mat-option value="5">5am</mat-option>
+                                    <mat-option value="6">6am</mat-option>
+                                    <mat-option value="7">7am</mat-option>
+                                    <mat-option value="8">8am</mat-option>
+                                    <mat-option value="9">9am</mat-option>
+                                    <mat-option value="10">10am</mat-option>
+                                    <mat-option value="11">11am</mat-option>
+                                    <mat-option value="12">12pm</mat-option>
+                                    <mat-option value="13">1pm</mat-option>
+                                    <mat-option value="14">2pm</mat-option>
+                                    <mat-option value="15">3pm</mat-option>
+                                    <mat-option value="16">4pm</mat-option>
+                                    <mat-option value="17">5pm</mat-option>
+                                    <mat-option value="18">6pm</mat-option>
+                                    <mat-option value="19">7pm</mat-option>
+                                    <mat-option value="20">8pm</mat-option>
+                                    <mat-option value="21">9pm</mat-option>
+                                    <mat-option value="22">10pm</mat-option>
+                                    <mat-option value="23">11pm</mat-option>
+                                    
+                                </mat-select>
+                         
+                            </mat-form-field>
+                        </div>
+                      <div class="flex justify-end">
+                            <button class="px-8 mr-2" mat-flat-button [color]="'accent'" type="submit"
+                                matStepperPrevious>
+                                Back
+                            </button>
+                            <button class="px-8" mat-flat-button [color]="'primary'"
+                                [disabled]="horizontalStepperStep2.stepControl.invalid"
+                                type="submit" matStepperNext>
+                                Next
+                            </button>
+                        </div>
+                    </mat-step>
+
+
+
+                    <mat-step>
+                        <ng-template matStepLabel>Done</ng-template>
+                        <p class="my-6 font-medium">
+                            Thank you for completing your preference form!
+                        </p>
+                        <div class="flex justify-end mt-8">
+                            <button class="px-8 mr-2" mat-flat-button [color]="'accent'" type="button"
+                                matStepperPrevious>
+                                Back
+                            </button>
+                     
+                        </div>
+                    </mat-step>
+                </mat-horizontal-stepper>
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+</div>

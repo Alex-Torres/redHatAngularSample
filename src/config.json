@@ -1,0 +1,28 @@
+{
+    "msal": {
+      "auth": {
+        "clientId": "",
+        "authority": "",
+        "redirectUri": "",
+        "postLogoutRedirectUri": ""
+      },
+      "cache": {
+        "cacheLocation": "localStorage",
+        "storeAuthStateInCookie": true
+      }
+    },
+    "guard": {
+      "interactionType": "redirect",
+      "authRequest": {
+        "scopes": ["user.read"]
+      },
+      "loginFailedRoute": "/login-failed"
+    },
+    "interceptor": {
+      "interactionType": "redirect",
+      "protectedResourceMap": [
+        [[]],[[]]
+      ]
+    }
+  }
+  
