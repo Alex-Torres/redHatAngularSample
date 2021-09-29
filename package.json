@@ -6,12 +6,8 @@
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build --configuration production --base-href /oc-spa/",
-    "watch": "ng build --watch --configuration development --base-href /oc-spa/",
-    "unitTest": "ng test",
-    "coverage": "ng test --code-coverage",
-    "integrationTest": "node integrationTest/test.js",
-    "test": "ng test",
-    "e2e": "ng e2e"
+    "watch": "ng build --watch --configuration development --base-href /oc-spa/"
+
   },
   "dependencies": {
     "@angular/animations": "~12.2.7",
