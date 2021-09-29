@@ -27,7 +27,7 @@
     "@angular/router": "~12.2.7",
     "@azure/msal-angular": "^2.0.2",
     "@azure/msal-browser": "^2.16.1",
-    "@cypress/schematic": "^1.5.1",
+
     "@microsoft/microsoft-graph-client": "^3.0.0",
     "@microsoft/microsoft-graph-types": "^2.3.0",
     "@ngneat/tailwind": "^7.0.3",
@@ -81,7 +81,6 @@
     "autoprefixer": "10.2.5",
     "chai": "^4.2.0",
     "chroma-js": "2.1.1",
-    "cypress": "^8.4.0",
     "eslint": "7.32.0",
     "eslint-plugin-import": "2.24.0",
     "eslint-plugin-jsdoc": "36.0.7",
